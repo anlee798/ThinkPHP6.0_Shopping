@@ -1,0 +1,30 @@
+<div id="person">
+    {present name='user'}
+    <table>
+        <thead>
+        <tr>
+            <th>用户ID</th>
+            <th>用户名</th>
+            <th>邮箱</th>
+            <th>电话</th>
+            <th>注册时间</th>
+            <th>最后登录时间</th>
+        </tr>
+        </thead>
+
+        {foreach $user as $value}
+        <tr style="line-height:50px">
+            <td>{$value['id']}</td>
+            <td>{$value['username']}</td>
+            <td>{$value['email']}</td>
+            <td>{$value['phone']}</td>
+            <td>{$value['create_time']}</td>
+            <td>{$value['update_time']}</td>
+        </tr>
+        {/foreach}
+    </table>
+    {$user|raw}
+    {else/}
+    暂无数据
+    {/present}
+</div>

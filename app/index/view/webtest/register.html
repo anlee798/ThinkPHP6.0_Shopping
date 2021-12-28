@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册界面</title>
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css" />
+</head>
+<body style="background-size: 100%">
+<div id="register">
+    <h2 style="font-family: 隶书;font-size: 40px">电子商城注册界面</h2>
+    <form class="register_form" action="/webtest/judgeRegister" method="post">
+        <span>用户名：</span><input type="text" name="username" placeholder="请输入用户名"><br><br>
+        <span>密&nbsp&nbsp&nbsp&nbsp码：</span><input type="password" name="password" placeholder="请输入密码"><br><br>
+        <span>邮&nbsp&nbsp&nbsp&nbsp箱：</span><input type="email" name="email" placeholder="请输入你的邮箱号"><br><br>
+        <span>电&nbsp&nbsp&nbsp&nbsp话：</span><input type="phone" name="phone" placeholder="请输入你的手机号"><br><br>
+        <span>设置找回密码问题：</span><textarea name="question" cols="20" rows="2" placeholder="设置找回密码问题"></textarea><br><br>
+        <span>设置找回密码答案：</span><textarea name="answer" cols="20" rows="2" placeholder="设置找回密码答案"></textarea><br><br>
+
+
+        <input class="reset" style="" type="reset" value="重置">
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <button type="submit" name="ok2">注册</button><br>
+        <a href="/webtest/login">已有账号，返回登录界面</a>
+    </form>
+</div>
+
+</body>
+</html>

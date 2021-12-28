@@ -1,0 +1,39 @@
+<div class="right">
+    <h5>主页/商品/商品详情</h5>
+    <div id="detail">
+        <div class="det_left">
+            <img src={$goodsdata[0]['imgsrc']}>
+        </div>
+        <div class="det_right">
+            <form action="http://www.test.com/shopcarttest/addGoods/goodid/{$goodsdata[0]['id']}" method="post">
+                <h1>{$goodsdata[0]['gname']}</h1>
+                <h3>价格： ￥{$goodsdata[0]['price']}</h3>
+                <h3>商品数量：<input style="width: 50px;" type="number" name="num" min="1" max="{$goodsdata[0]['stock']}" value="1"><button type="submit">加入购物车</button></h3>
+                <h3>销量：{$goodsdata[0]['sales']}</h3>
+                <h3>剩余库存：{$goodsdata[0]['stock']}件</h3>
+                <h3>商品评价：{$goodsdata[0]['evaluate']}</h3>
+            </form>
+        </div>
+    </div>
+    <div class="evaluate">
+        商品评论：
+        {present name='evaluate'}
+        {foreach $evaluate as $value}
+        <div style="border: 1px gray solid;line-height: 30px; border-radius: 5px; padding:20px">
+            <p style="text-indent: 2em;font-size: 20px;">{$value['nav']}</p>
+            <span style="margin-left: 600px">{$value['time']}</span><br>
+        </div>
+        {/foreach}
+        {else/}
+        暂无评论
+        {/present}
+
+
+    </div>
+    <div class="goods_tab">
+        <h3>商品详情</h3>
+        {foreach $strarr as $value}
+        <h2>{$value}</h2>
+        {/foreach}
+    </div>
+</div>

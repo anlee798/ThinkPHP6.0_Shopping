@@ -1,0 +1,21 @@
+{include file='header'/}
+<!--内容-->
+<div id="inner">
+    <div id="main" style="margin-top: 30px;margin-bottom: 30px">
+        {include file='index/main_left'/}
+        {include file='detail/goodsdetail'/}
+    </div>
+</div>
+
+<div id="tuijian">
+    <h2>商品推荐</h2>
+    {foreach name = "$tjgoods" item="ao" key="v"}
+    <div class="item">
+        <a href="http://www.test.com/detail/index/id/{$ao['id']}"><img src='{$ao["imgsrc"]}'></a>
+        <h6>{$ao['gname']}</h6>
+        <span>评价：{$ao['evaluate']}</span>&nbsp&nbsp&nbsp<span>月销售量：{$ao['sales']}</span>
+        <h5>￥{$ao['price']}</h5>
+    </div>
+    {/foreach}
+</div>
+{include file='footer'/}

@@ -1,0 +1,40 @@
+<div id="user_manager">
+    {switch number|default=1}
+    {case 1}
+    <!--        用户管理-->
+    {include file='managerperson/managerperson'/}
+    {/case}
+    {case 2}
+    <!--        添加分类-->
+    {include file='addcategory/addcategory'/}
+    {/case}
+    {case 3}
+    <!--        商品管理-->
+    {include file='managergoods/managergoods'/}
+    {/case}
+    {case 4}
+    <!--        添加商品-->
+    {include file='addgoods/addgoods'/}
+    {/case}
+    {case 5}
+    <!--        订单管理-->
+    {include file='managerorder/managerorder'/}
+    {/case}
+    {case 6}
+    <!--        修改密码-->
+    {include file='alterpassword/alterpassword'/}
+    {/case}
+    {case 7}
+    <!--        配置信息-->
+    {include file='myconfig/myconfig'/}
+    {/case}
+    {case 8}
+    <!--        补货-->
+    {include file='buhuo/buhuo'/}
+    {/case}
+    {case 9}
+    <!--        站内消息-->
+    {include file='message/message'/}
+    {/case}
+    {/switch}
+</div>

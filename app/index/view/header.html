@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎来到云上乐购商城</title>
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css" />
+    <script type="text/javascript" src="/static/js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="/static/js/Test.js"></script>
+    <script type="text/javascript" src="/static/js/index.js"></script>
+</head>
+<body>
+<div id="setted">
+    <a href="/shopcarttest/index"><img src="/static/image/shopcart.png"></a>
+    <a href="#header"><img src="/static/image/top.png"></a>
+</div>
+<!--头部-->
+<div id="header">
+    <form action="/Search" method="post">
+        <input type="text" name="search">
+        <input type="submit" style="background: none;font-size: 20px; border: none; cursor: pointer;width: 60px;margin-left:0px;" value="搜索">
+    </form>
+    {present name='userid'}
+    <a href="/index/index/tuichu" style="margin-right: 120px;">退出登录</a>
+    <a href="" style=" margin-right: 30px;">用户：{$userid}</a>
+    {else/}
+    <a href="LoginRegister" style="margin-right: 120px;">注册</a>
+    <a href="LoginRegister" style="margin-right:30px;">登录</a>
+    {/present}
+    <div id="nav">
+        <ul>
+            <li><a href="/index">首页</a></li>
+            <li><a href="/ordercontr">我的订单</a></li>
+            <li><a href="/shopcarttest">购物车</a></li>
+            <li><a href="/adress">收货地址</a></li>
+            <li><a href="/set">账户设置</a></li>
+        </ul>
+    </div>
+</div>

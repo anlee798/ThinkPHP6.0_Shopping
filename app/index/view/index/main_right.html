@@ -1,0 +1,16 @@
+<div class="right">
+    <h5>主页/商品</h5>
+    {empty name='goods'}
+    <h1 style="text-align: center;">暂无商品推荐，敬请期待！</h1>
+    {else/}
+    {foreach name = "$goods" item="ao" key="v"}
+    <div class="item">
+        <a href="http://www.test.com/detail/index/id/{$ao['id']}"><img src='{$ao["imgsrc"]}'></a>
+        <h6>{$ao['gname']}</h6>
+        <span>评价：{$ao['evaluate']}</span>&nbsp&nbsp&nbsp<span>月销售量：{$ao['sales']}</span>
+        <h5>￥{$ao['price']}</h5>
+    </div>
+    {/foreach}
+    {/empty}
+
+</div>

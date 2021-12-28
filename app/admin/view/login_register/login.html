@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>登录注册页面</title>
+    <link rel="stylesheet" href="/static/css/loginstyle.css">
+</head>
+<body>
+    <div class="dowebok">
+        <!--登录界面-->
+        <form class="form sign-in" action="/admin/LoginRegister/judgeLogin" method="post">
+            <h2>管理员欢迎回来</h2>
+            <label>
+                <span>用户ID</span>
+                <input type="text" name="userid" />
+            </label>
+            <label>
+                <span>密码</span>
+                <input type="password" name="password" />
+            </label>
+            <!--验证码功能-->
+            <label>
+                <span>验证码</span>
+                <input type="text" name="code">
+            <div style="margin-top: 10px;">
+                <img style="width: 140px;" src="{:captcha_src()}"	alt="captcha"	/>
+            </div>
+            <h3 style="color: red">{$mess|default=''}</h3>
+            </label>
+            <p class="forgot-pass"><a href="/admin/LoginRegister/ClickBackPW">忘记密码？</a></p>
+            <h3 style="color: red;text-align: center;margin-top: 30px;">{$errormessage|default=''}</h3>
+            <button type="submit" class="submit">登 录</button>
+        </form>
+
+        <div class="sub-cont">
+            <div class="img">
+                <div class="img__text m--up">
+                    <h2>还未注册？</h2>
+                    <p>立即注册，发现大量机会！</p>
+                </div>
+                <div class="img__text m--in">
+                    <h2>已有帐号？</h2>
+                    <p>有帐号就登录吧，好久不见了！</p>
+                </div>
+                <div class="img__btn">
+                    <span class="m--up">注 册</span>
+                    <span class="m--in">登 录</span>
+                </div>
+            </div>
+            <!--注册界面-->
+            <form class="form sign-up" action="/admin/LoginRegister/judgeRegister" method="post">
+                <h2>立即注册</h2>
+                <label>
+                    <span>用户名</span>
+                    <input type="text" name="username" />
+                </label>
+                <label>
+                    <span>密码</span>
+                    <input type="password" name="password" />
+                </label>
+                <label>
+                    <span>邮箱</span>
+                    <input type="email" name="email" />
+                </label>
+                <label>
+                    <span>手机号</span>
+                    <input type="text" name="phone" />
+                </label>
+                <label>
+                    <span>找回密码问题</span>&nbsp&nbsp&nbsp
+                    <textarea style="height: 20px;" name="question" cols="15" rows="1" placeholder="设置找回密码问题"></textarea>
+                </label>
+                <label>
+                    <span>找回密码答案</span>&nbsp&nbsp&nbsp
+                    <textarea style="height: 20px;" name="answer" cols="15" rows="1" placeholder="设置找回密码答案"></textarea>
+                </label>
+                <h3 style="color: red;text-align: center;">{$mess2|default=''}</h3>
+                <button type="submit" style="margin-top: 10px;" name="OK2" class="submit">注 册</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+</body>
+
+</html>

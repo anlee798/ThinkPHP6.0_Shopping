@@ -1,0 +1,25 @@
+<div id="order">
+    {present name='ordercontr'}
+    <table style="margin: 0 auto">
+        <tr><th>商品ID</th><th>数量</th><th>商品单价</th>
+            <th>总金额</th><th>用户ID</th><th>用户详细地址</th><th>订单创建时间</th><th>操作</th>
+        </tr>
+
+        {foreach $ordercontr as $value}
+        <tr  style="line-height:30px">
+            <td style="width: 60px">{$value['goods_id']}</td>
+            <td style="width: 50px">{$value['num']}</td>
+            <td>￥{$value['price']}</td>
+            <td>￥{$value['money']}</td>
+            <td>{$value['user_id']}</td>
+            <td>{$value['adress']}</td>
+            <td>{$value['createtime']}</td>
+            <td><a href="http://www.test.com/admin/index/deleteOrder/oid/{$value['id']}">删除</a></td>
+        </tr>
+        {/foreach}
+    </table>
+    {$ordercontr|raw}
+    {else/}
+    暂无订单
+    {/present}
+</div>

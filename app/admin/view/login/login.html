@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录界面</title>
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css" />
+</head>
+<body>
+<div id="login">
+    <h2 style="font-family: 隶书;font-size: 35px">电子商城后台登录界面</h2>
+    <form class="login_form" action="http://www.test.com/admin/login/judgeLogin" method="post">
+        <span>用户ID：</span><input type="text" name="userid" placeholder="请输入用户名"><br><br>
+        <span>密&nbsp&nbsp&nbsp&nbsp码：</span><input type="password" name="password" placeholder="请输入密码"><br><br>
+        <span style="margin-left: 40px">验证码：</span><input style="width: 90px" type="text" name="code">
+        <div style="float: right;margin-top: 8px; margin-right: 20px;">
+            <img style="width: 140px;" src="{:captcha_src()}"	alt="captcha"	/>
+        </div>
+        <h3 style="color: red">{$mess|default=''}</h3>
+        <button style="width: 120px;cursor: pointer;" type="submit" name="ok1">登录</button>
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<!--        <button name="ok2"><a href="http://www.test.com/admin/login/register">注册</a></button>-->
+        <h3 style="color: red">{$errormessage|default=''}</h3>
+    </form>
+</div>
+
+</body>
+</html>

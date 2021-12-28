@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台页面</title>
+    <link rel="stylesheet" href="/static/css/adminstyle.css" type="text/css" />
+    <script type="text/javascript" src="/static/js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="/static/js/index.js"></script>
+</head>
+<body>
+<div id="admin_header">
+    <h1>后台管理中心</h1>
+    <a style="margin-left: 300px" href="http://www.test.com"><button>前台首页</button></a>
+    <a href="/admin/index/Tuichu"><button>退出登录</button></a>
+    {present name='userid'}
+    <a style="float: right;margin-right: 50px">管理员：{$userid}，您好</a>
+    {/present}
+</div>
+<div id="admin_nav">

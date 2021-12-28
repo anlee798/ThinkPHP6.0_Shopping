@@ -1,0 +1,23 @@
+<div id="goods">
+    <h3>添加商品:</h3>
+    <form action="http://www.test.com/admin/index/upload" method="post"  enctype="multipart/form-data">
+        请选择该商品分类标签:
+        <select name="pcname">
+            {present name='list'}
+            {foreach $list as $value}
+            <option value="{$value}" >{$value}</option>
+            {/foreach}
+            {else/} first不存在
+            {/present}
+        </select>
+        <br>
+        商品名称：<input type="text" name="name" placeholder="请输入商品名称"><br>
+        商品价格：<input type="text" name="price" placeholder="请输入商品价格"><br>
+        封面图：<input type="file" name="image"/><br>
+        商品详情：<textarea name="description" rows="10" cols="40" placeholder="商品属性以空格分开"></textarea><br>
+        商品库存：<input type="text" name="stock" placeholder="请输入商品库存"><br>
+        <input type="submit" value="提交"><br>
+        <h2 style="color: cornflowerblue">{$message|default=''}</h2>
+        <h2 style="color: red">{$message2|default=''}</h2>
+    </form>
+</div>

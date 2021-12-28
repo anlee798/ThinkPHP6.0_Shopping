@@ -1,0 +1,14 @@
+<div class="left">
+    {foreach name="$users" item="vo" key="k"}
+    <h4>{$vo['name']}</h4>
+    <ul>
+        {foreach name = "$datas" item="ao" key="v"}
+        {if($k==$v)}
+        {foreach name = "$ao" item="zo" key='a'}
+        <li><a href="http://www.test.com/index/index/get/row/{$k}/col/{$a}#main">{$zo}</a></li>
+        {/foreach}
+        {/if}
+        {/foreach}
+    </ul>
+    {/foreach}
+</div>

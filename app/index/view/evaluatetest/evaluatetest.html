@@ -1,0 +1,26 @@
+{include file='header'/}
+<div id="evaluate">
+    <table>
+        {foreach $goods as $value}
+        <tr>
+            <td>商品名称</td>
+            <td>{$value['gname']}</td>
+        </tr>
+        <tr>
+            <td>商品预览</td>
+            <td><img style="width: 40px;height: 60px" src={$value['imgsrc']}></td>
+        </tr>
+        <tr>
+            <td>商品单价</td>
+            <td>{$value['price']}</td>
+        </tr>
+        {/foreach}
+    </table>
+    <form action="http://www.test.com/evaluatetest/sub/gid/{$goods[0]['id']}" method="post">
+        请输入你的评论：<textarea name="text" cols="60" rows="20"></textarea>
+        <input type="submit" value="提交">
+    </form>
+    <h3 style="color: cornflowerblue">{$message|default=''}</h3>
+    <h3 style="color: red">{$message2|default=''}</h3>
+</div>
+{include file='footer'/}

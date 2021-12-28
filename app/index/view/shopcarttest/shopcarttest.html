@@ -1,0 +1,99 @@
+{include file='header'/}
+<div id="shopcart">
+<h2>购物车全部商品：</h2>
+    <table>
+        <tr><th>商品ID</th><th>商品图片</th><th>商品名称</th><th>单价</th><th>数量</th><th>总价</th><th>操作</th></tr>
+        <hr style="width: 75%;margin: 10px auto;color: gray;">
+        {present name='message'}
+        {foreach($message as $value)}
+        <tr>
+            <td>{$value['gid']}</td>
+            <td><img style="width: 40px;height: 50px;" src={$value['imgsrc']}></td>
+            <td>{$value['gname']}</td>
+            <td>￥{$value['price']}</td>
+            <td>{$value['num']}</td>
+            <td>￥{$value['num']*$value['price']}</td>
+            <td><a href="/shopcarttest/deletecart/gid/{$value['gid']}">删除</a>
+                &nbsp&nbsp&nbsp
+                {if($value['statue'])!=1}
+                <a>商品已下架</a>
+                {else}
+                <a href="/shopcarttest/chooseAdress/gid/{$value['gid']}">结算</a></td>
+                {/if}
+
+        </tr>
+        {/foreach}
+        {else/}
+        user不存在
+        {/present}
+    </table>
+    {present name='$ad'}
+    {if(sizeof($ad)!=0)}
+    {foreach $ad as $key}
+    <table id="choose">
+        <tr>
+            <td>用户id</td>
+            <td>{$key['uid']}</td>
+        </tr>
+        <tr>
+            <td>收货人姓名</td>
+            <td>{$key['username']}</td>
+        </tr>
+        <tr>
+            <td>收货人手机号</td>
+            <td>{$key['phone']}</td>
+        </tr>
+        <tr>
+            <td>收货人邮编</td>
+            <td>{$key['postcode']}</td>
+        </tr>
+        <tr>
+            <td>收货人地址</td>
+            <td>{$key['adress']}</td>
+        </tr><button><a href="/shopcarttest/addorder/gid/{$value['id']}/adid/{$key['id']}">选择</a></button>
+    </table>
+
+    {/foreach}
+    {else}
+    还没有添加地址，快添加一个地址吧！<br>
+    <a href="/adress">点击添加收货地址</a>
+    {/if}
+    {/present}
+    <div class="cart_bto">
+        <button><a href="/ShopCartTest/clearShopCart">清空购物车</a></button>
+    </div>
+<!--    清空购物车添加地址-->
+    {present name='$ad2'}
+    {if(sizeof($ad2)!=0)}
+    {foreach $ad2 as $key}
+    <table id="choose">
+        <tr>
+            <td>用户id</td>
+            <td>{$key['uid']}</td>
+        </tr>
+        <tr>
+            <td>收货人姓名</td>
+            <td>{$key['username']}</td>
+        </tr>
+        <tr>
+            <td>收货人手机号</td>
+            <td>{$key['phone']}</td>
+        </tr>
+        <tr>
+            <td>收货人邮编</td>
+            <td>{$key['postcode']}</td>
+        </tr>
+        <tr>
+            <td>收货人地址</td>
+            <td>{$key['adress']}</td>
+        </tr><button><a href="/shopcarttest/addallorder/adid/{$key['id']}">选择</a></button>
+    </table>
+
+    {/foreach}
+    {else}
+    还没有添加地址，快添加一个地址吧！<br>
+    <a href="/adress">点击添加收货地址</a>
+    {/if}
+    {/present}
+</div>
+{include file='footer'/}

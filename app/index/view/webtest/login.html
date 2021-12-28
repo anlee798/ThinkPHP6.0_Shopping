@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录界面</title>
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css" />
+</head>
+<body style="background-size: 100%">
+<div id="login">
+    <h2 style="font-family: 隶书;font-size: 40px">电子商城登录界面</h2>
+    <h3>您尚未登录，请登录</h3>
+    <form class="login_form" action="/webtest/judgeLogin" method="post">
+        <span>用户ID：</span><input type="text" name="userid" placeholder="请输入用户名"><br><br>
+        <span>密&nbsp&nbsp&nbsp&nbsp码：</span><input type="password" name="password" placeholder="请输入密码"><br><br>
+        <span style="margin-left: 40px">验证码：</span><input style="width: 90px" type="text" name="code">
+        <div style="float: right;margin-top: 8px; margin-right: 20px;">
+            <img style="width: 140px;" src="{:captcha_src()}"	alt="captcha"	/>
+        </div>
+        <h3 style="color: red">{$mess|default=''}</h3>
+        <div>
+            <button type="submit" name="ok1">登录</button>
+            <button style="margin-left: 120px" name="ok2">
+                <a href="/webtest/register">注册</a>
+            </button>
+        </div>
+        <h3 style="color: red">{$errormessage|default=''}</h3>
+    </form>
+</div>
+
+</body>
+</html>

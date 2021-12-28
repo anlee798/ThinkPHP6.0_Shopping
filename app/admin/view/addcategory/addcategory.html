@@ -1,0 +1,30 @@
+
+<div id="category">
+    <form action="http://www.test.com/admin/index/formcategory1" method="post">
+        <span>创建新的一级分类标签:</span><input type="text" name="cg" placeholder="请输入一级标签">
+        <input type="submit" value="确定" name='sm'/>
+        <input type="reset" value="重置" />
+        <h2 style="color: red">{$chongfu|default=''}</h2>
+        <h2 style="color: greenyellow">{$chenggong|default=''}</h2>
+        <br><br><br><br>
+    </form>
+    <form action="http://www.test.com/admin/index/formcategory2" method="post">
+        <span>创建二级分类标签:</span><br>
+        <span>上级分类：</span>
+        <select name="pcname">
+            {present name='first'}
+            {foreach $first as $value}
+            <option value="{$value}" >{$value}</option>
+            {/foreach}
+            {else/} first不存在
+            {/present}
+        </select><br>
+
+        <span>分类名称：</span>
+        <input type="text" name="cname"/>
+        <input type="submit" value="确定" name='sm'/>
+        <input type="reset" value="重置" /><br>
+        <h2 style="color: red">{$chongfu2|default=''}</h2>
+        <h2 style="color: greenyellow">{$chenggong2|default=''}</h2>
+    </form>
+</div>

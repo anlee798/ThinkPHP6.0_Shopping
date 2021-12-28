@@ -1,0 +1,28 @@
+{include file='header'/}
+<div id="set">
+    {switch number|default=1}
+    {case 1}
+    <form action="http://www.test.com/set/alterPw" method="post">
+        <span>旧密码:</span><input type="password" name="pw" placeholder="请输入旧密码"><br>
+        <span>新密码:</span><input type="password" name="newpw" placeholder="请输入新密码"><br>
+        <a href="http://www.test.com/set/formBackPassword">忘记密码</a>
+        <button type="submit" value="修改">修改</button>
+    </form>
+    <h3 style="color: red">{$errormessage|default=''}</h3>
+    <h3 style="color: cornflowerblue">{$errormessage2|default=''}</h3>
+    {/case}
+    {case 2}
+    <form action="http://www.test.com/set/backPassword" method="post">
+        <span>找回密码问题:</span><input type="text" value={$question|default=''}><br>
+        <span>找回密码答案:</span><input type="text" name="answer" placeholder="请输入你的回答"><br>
+        <span>设置的新密码:</span><input type="password" name="newpw" placeholder="请输入新密码"><br>
+        <a href="http://www.test.com/set">输入密码</a>
+        <button type="submit" value="确定">确定</button>
+    </form>
+    <h3 style="color: red">{$errormessage3|default=''}</h3>
+    <h3 style="color: cornflowerblue">{$errormessage4|default=''}</h3>
+    {/case}
+    {/switch}
+
+</div>
+{include file='footer'/}

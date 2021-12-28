@@ -1,0 +1,35 @@
+{include file='header'/}
+<div id="order">
+    <h2>订单记录：</h2>
+    <table>
+        <tr><th>商品名称</th><th>商品预览</th><th>状态</th><th>商品单价</th>
+            <th>数量</th><th>总金额</th><th>用户详细地址</th><th>订单创建时间</th><th>评价</th><th>操作</th>
+        </tr>
+        <hr style="width: 90%;margin: 20px auto;color: gray;">
+        {present name='order'}
+        {foreach $order as $value}
+        <tr>
+            <td>{$value['gname']}</td>
+            <td style="width: 80px"><img style="width: 40px;height: 50px;" src={$value['imgsrc']}></td>
+            <td style="width: 40px;">
+                {if($value['statue'])!=1}
+                <span style="color: red;">下架</span>
+                {else}
+                正常
+                {/if}
+            </td>
+            <td>￥{$value['price']}</td>
+            <td style="width: 40px;">{$value['num']}</td>
+            <td>￥{$value['money']}</td>
+            <td>{$value['adress']}</td>
+            <td style="padding-left: 30px">{$value['createtime']}</td>
+            <td style="width: 60px;"><a href="http://www.test.com/evaluatetest/index/gid/{$value['goods_id']}">评价</a></td>
+            <td><a href="http://www.test.com/index/ordercontr/deleteOrder/oid/{$value['id']}">删除此订单</a></td>
+        </tr>
+        {/foreach}
+        {else/}
+        暂无订单
+        {/present}
+    </table>
+</div>
+{include file='footer'/}

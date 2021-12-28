@@ -1,0 +1,40 @@
+<div id="buhuo">
+    {switch flag|default=1}
+    {case 1}
+    <h3 style="text-align: center; color: cornflowerblue">{$back|default=''}</h3>
+    <form action="http://www.test.com/admin/index/buHuo2" method="post">
+        请选择该商品ID:
+        <select name="buhuoID">
+            {present name='buhuoID'}
+            {foreach $buhuoID as $value}
+            <option value="{$value}" >{$value}</option>
+            {/foreach}
+            {/present}
+        </select><br>
+        <input type='submit' value="确定">
+    </form>
+    {/case}
+    {case 2}
+    {present name='gd'}
+    {foreach $gd as $value}
+    <form class="buhuo2" action="http://www.test.com/admin/index/buHuo3" method="post">
+        <h4>商品ID:{$value['id']}<input type="hidden" name="gid" value={$value['id']}></h4>
+        <span>商品名称:</span><input type="text" name="gname" value={$value['gname']}><br>
+        <span>商品价格:</span><input type="text" name="price" value={$value['price']}><br>
+        <span>商品描述:</span><textarea name="text" cols="30" rows="8">{$value['description']}</textarea><br>
+        <span>商品库存:</span><input type="text" name="stock" value={$value['stock']}><br>
+        <span>商品父类id:</span>
+        <input type="text" name="sel" value={$value['cid']}>
+        <select name="sel">
+            {foreach $cid as $cd}
+            <option value={$cd}>{$cd}</option>
+            {/foreach}
+        </select>
+        <br>
+        <button type="submit">提交</button>
+    </form>
+    {/foreach}
+    {/present}
+    {/case}
+    {/switch}
+</div>
